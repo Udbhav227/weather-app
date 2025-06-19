@@ -8,7 +8,18 @@ body {
   overflow-y: auto;
 
   color: var(--text-primary);
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(0, 0, 0, 0.15) 100%
+    ),
+    radial-gradient(
+        at top center,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(0, 0, 0, 0.4) 120%
+      )
+      #989898;
   background-blend-mode: multiply, multiply;
 }
 
@@ -51,7 +62,8 @@ body {
   color: var(--text-secondary);
 }
 
-.search-button, .unit-toggle {
+.search-button,
+.unit-toggle {
   background: rgba(255, 255, 255, 0.3);
   border: none;
   color: var(--text-primary);
@@ -77,19 +89,20 @@ body {
 /* --- Main Layout --- */
 main {
   display: grid;
-  grid-template-columns: .8fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
   gap: 20px;
 }
 
 .card {
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px); 
+  -webkit-backdrop-filter: blur(15px);
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.35);
   padding: var(--card-padding);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1),
-  inset 0 1px 2px rgba(255, 235, 120, 0.6);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 2px rgba(255, 235, 120, 0.6);
 }
 
 /* --- Current Weather (Top Left) --- */
@@ -97,11 +110,15 @@ main {
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 15px;
-  background-image: linear-gradient(135deg, rgba(255, 235, 120, 0.1), rgba(120, 255, 214, 0.1));
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 235, 120, 0.1),
+    rgba(120, 255, 214, 0.1)
+  );
 }
 .current-weather-container {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 .location {
   font-size: 2.5rem;
@@ -114,7 +131,7 @@ main {
 .current-temp {
   font-size: 6rem;
   font-weight: 700;
-  margin: .5rem 0 0 0;
+  margin: 0.5rem 0 0 0;
   line-height: 1;
   display: inline-block;
 }
@@ -122,8 +139,8 @@ main {
   font-size: 1.2rem;
 }
 #current-weather-icon img {
-    width: 250px; 
-    filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.2));
+  width: 250px;
+  filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.2));
 }
 #current-weather-description {
   font-size: 1.3rem;
@@ -141,57 +158,59 @@ main {
   text-align: center;
 }
 .detail-card .material-symbols-outlined {
-    font-size: 3rem;
-    margin: 10px 0;
+  font-size: 3rem;
+  margin: 10px 0;
 }
 .detail-title {
-    font-weight: bold;
-    color: var(--text-secondary);
+  font-weight: bold;
+  color: var(--text-secondary);
 }
 .detail-value {
-    font-size: 1.5rem;
-    font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
-
 
 /* --- Right Panel --- */
 .right-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.hourly-forecast h3, .seven-day-forecast h3 {
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 10px;
+.hourly-forecast h3,
+.seven-day-forecast h3 {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 10px;
 }
 
-.hourly-item, .daily-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
+.hourly-item,
+.daily-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
 }
 
 .daily-item:not(:last-child) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .daily-item-day {
-    flex-basis: 30%;
+  flex-basis: 30%;
 }
 .daily-item-condition {
-    flex-basis: 40%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  flex-basis: 40%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .daily-item-temp {
-    flex-basis: 20%;
-    text-align: right;
+  flex-basis: 20%;
+  text-align: right;
 }
 
-.hourly-item img, .daily-item-condition img {
-    width: 40px;
+.hourly-item img,
+.daily-item-condition img {
+  width: 40px;
 }

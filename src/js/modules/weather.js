@@ -35,7 +35,7 @@ export default class Weather {
     // Hourly Forecast
     this.hourlyForecast = (data.days && data.days[0] && data.days[0].hours) ?
     data.days[0].hours.map(hour => ({
-        time: hour.datetime, // e.g., "15:00:00"
+        time: hour.datetime, 
         temp: hour.temp,
         icon: hour.icon,
     })) : [];

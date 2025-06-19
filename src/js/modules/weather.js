@@ -5,6 +5,7 @@ export default class Weather {
     }
     
     this.location = data.resolvedAddress;
+    this.weatherDescription = data.description;
 
     // Current Conditions
     const current = data.currentConditions;

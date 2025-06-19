@@ -1,8 +1,10 @@
 const DOMElements = {
   location: document.getElementById("location"),
+  parentLocation: document.getElementById("parent-location"),
   currentTemp: document.getElementById("current-temp"),
   currentCondition: document.getElementById("current-condition"),
   currentWeatherIcon: document.getElementById("current-weather-icon"),
+  currentWeatherDescription: document.getElementById("current-weather-description"),
   windSpeed: document.getElementById("wind-speed"),
   humidity: document.getElementById("humidity"),
   precipitation: document.getElementById("precipitation"),
@@ -34,8 +36,11 @@ async function getWeatherIcon(iconName) {
 // Render Functions
 async function renderCurrentWeather(weatherData) {
   DOMElements.location.textContent = weatherData.location.split(",")[0];
+  DOMElements.parentLocation.textContent = weatherData.location.split(",").slice(1).join(", ");;
+
   DOMElements.currentTemp.textContent = `${Math.round(weatherData.currentTemp)}°`;
   DOMElements.currentCondition.textContent = weatherData.description;
+  DOMElements.currentWeatherDescription.textContent = weatherData.weatherDescription
 
   const iconHTML = await getWeatherIcon(weatherData.icon);
   DOMElements.currentWeatherIcon.innerHTML = iconHTML;

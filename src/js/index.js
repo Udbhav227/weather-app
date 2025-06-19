@@ -65,4 +65,5 @@ function initializeEventListeners() {
 document.addEventListener('DOMContentLoaded', () => {
     // initializeEventListeners();
     displayLocalData();
+    // fetchAndDisplayWeather('Bhubaneswar')
 });

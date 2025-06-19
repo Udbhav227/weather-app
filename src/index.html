@@ -4,14 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeatherApp</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
   <body>
     <div class="weather-app-container">
       <header class="app-header">
         <div class="app-logo">WeatherApp</div>
         <form class="search-section" id="weather-search-form">
-          <input type="text" id="city-input" placeholder="Search city..." required>
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Search city..."
+            required
+          />
           <button type="submit" class="search-button">
             <span class="material-symbols-outlined">search</span>
           </button>
@@ -22,50 +30,57 @@
       <main>
         <div class="main-content">
           <section class="card current-weather" id="current-weather">
-            <div class="current-weather-info">
+            <div class="current-weather-container">
+              <div class="current-weather-info">
                 <p class="location" id="location">--</p>
+                <p class="parent-location" id="parent-location">--</p>
                 <p class="current-temp" id="current-temp">--°</p>
                 <p class="current-condition" id="current-condition">--</p>
+              </div>
+              <div class="current-weather-icon" id="current-weather-icon"></div>
             </div>
-            <div class="current-weather-icon" id="current-weather-icon">
-                </div>
+            <p class="description" id="current-weather-description">--</p>
           </section>
 
           <section class="weather-details">
-             <div class="card detail-card">
-                <p class="detail-title">Wind</p>
-                <span class="material-symbols-outlined">air</span>
-                <p class="detail-value" id="wind-speed">-- km/h</p>
-             </div>
-             <div class="card detail-card">
-                <p class="detail-title">Humidity</p>
-                <span class="material-symbols-outlined">humidity_percentage</span>
-                <p class="detail-value" id="humidity">-- %</p>
-             </div>
-             <div class="card detail-card">
-                <p class="detail-title">Precipitation</p>
-                <span class="material-symbols-outlined">rainy</span>
-                <p class="detail-value" id="precipitation">-- %</p>
-             </div>
-             <div class="card detail-card">
-                <p class="detail-title">Feels like</p>
-                <span class="material-symbols-outlined">thermostat</span>
-                <p class="detail-value" id="feels-like">--°</p>
-             </div>
+            <div class="card detail-card">
+              <p class="detail-title">Wind</p>
+              <span class="material-symbols-outlined">air</span>
+              <p class="detail-value" id="wind-speed">-- km/h</p>
+            </div>
+            <div class="card detail-card">
+              <p class="detail-title">Humidity</p>
+              <span class="material-symbols-outlined">humidity_percentage</span>
+              <p class="detail-value" id="humidity">-- %</p>
+            </div>
+            <div class="card detail-card">
+              <p class="detail-title">Precipitation</p>
+              <span class="material-symbols-outlined">rainy</span>
+              <p class="detail-value" id="precipitation">-- %</p>
+            </div>
+            <div class="card detail-card">
+              <p class="detail-title">Feels like</p>
+              <span class="material-symbols-outlined">thermostat</span>
+              <p class="detail-value" id="feels-like">--°</p>
+            </div>
           </section>
         </div>
 
         <aside class="right-panel">
           <section class="card hourly-forecast">
             <h3>Hourly forecast</h3>
-            <div class="hourly-forecast-container" id="hourly-forecast-container">
-              </div>
+            <div
+              class="hourly-forecast-container"
+              id="hourly-forecast-container"
+            ></div>
           </section>
-          
+
           <section class="card seven-day-forecast">
             <h3>7-day forecast</h3>
-            <div class="daily-forecast-container" id="daily-forecast-container">
-                </div>
+            <div
+              class="daily-forecast-container"
+              id="daily-forecast-container"
+            ></div>
           </section>
         </aside>
       </main>

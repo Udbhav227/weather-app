@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 :root {
-  --border-radius: 20px;
+  --border-radius: 25px;
   --card-padding: 20px;
   --text-primary: #f0f0f0;
   --text-secondary: #c7c7c7;

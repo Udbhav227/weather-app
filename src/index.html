@@ -3,9 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WeatherApp</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <div class="weather-app-container">
+      <header class="app-header">
+        <div class="app-logo">WeatherApp</div>
+        <div class="search-section">
+          <input type="text" placeholder="Search...">
+          <span class="search-icon">🔍</span>
+        </div>
+        <button class="unit-toggle">C / F</button>
+      </header>
+
+      <main class="main-content">
+        <section class="current-weather-display"></section>
+
+        <aside class="right-panel">
+          <div class="hourly-forecast"></div>
+        </aside>
+
+        <section class="weather-details-cards">
+          <div class="feelslike"></div>
+          <div class="windspeed"></div>
+          <div class="humidity"></div>
+          <div class="uvindex"></div>
+          <div class="visibility"></div>
+          <div class="snow"></div>
+        </section>
+
+        <section class="daily-forecast"></section>
+      </main>
+    </div>
   </body>
 </html>

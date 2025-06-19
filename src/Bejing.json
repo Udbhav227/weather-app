@@ -2,8 +2,8 @@
   "queryCost": 1,
   "latitude": 39.9066,
   "longitude": 116.388,
-  "resolvedAddress": "中国",
-  "address": "China",
+  "resolvedAddress": "Beijing, China",
+  "address": "Bejing",
   "timezone": "Asia/Shanghai",
   "tzoffset": 8.0,
   "description": "Cooling down with no rain expected.",
@@ -11,28 +11,26 @@
     {
       "datetime": "2025-06-19",
       "datetimeEpoch": 1750262400,
-      "tempmax": 90.2,
+      "tempmax": 84.1,
       "tempmin": 69.7,
-      "temp": 77.9,
-      "feelslikemax": 89.7,
+      "temp": 76.7,
+      "feelslikemax": 88.3,
       "feelslikemin": 69.7,
-      "feelslike": 78.2,
-      "dew": 67.7,
-      "humidity": 74.1,
+      "feelslike": 77.5,
+      "dew": 69.3,
+      "humidity": 79.1,
       "precip": 0.008,
       "precipprob": 100.0,
       "precipcover": 8.33,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 17.0,
       "windspeed": 15.7,
-      "winddir": 122.0,
-      "pressure": 1005.4,
+      "winddir": 105.7,
+      "pressure": 1005.8,
       "cloudcover": 88.6,
-      "visibility": 9.1,
+      "visibility": 7.7,
       "solarradiation": 168.7,
       "solarenergy": 14.5,
       "uvindex": 6.0,
@@ -45,10 +43,7 @@
       "conditions": "Rain, Partially cloudy",
       "description": "Partly cloudy throughout the day with rain clearing later.",
       "icon": "rain",
-      "stations": [
-        "ZBAA",
-        "remote"
-      ],
+      "stations": ["ZBAA"],
       "source": "comb",
       "hours": [
         {
@@ -75,9 +70,7 @@
           "severerisk": 5.0,
           "conditions": "Partially cloudy",
           "icon": "partly-cloudy-night",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -104,9 +97,7 @@
           "severerisk": 5.0,
           "conditions": "Partially cloudy",
           "icon": "partly-cloudy-night",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -133,9 +124,7 @@
           "severerisk": 5.0,
           "conditions": "Partially cloudy",
           "icon": "partly-cloudy-night",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -162,9 +151,7 @@
           "severerisk": 5.0,
           "conditions": "Partially cloudy",
           "icon": "partly-cloudy-night",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -178,9 +165,7 @@
           "precipprob": 100.0,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 2.9,
           "windspeed": 4.5,
           "winddir": 120.0,
@@ -193,9 +178,7 @@
           "severerisk": 5.0,
           "conditions": "Rain, Partially cloudy",
           "icon": "rain",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -222,9 +205,7 @@
           "severerisk": 5.0,
           "conditions": "Partially cloudy",
           "icon": "partly-cloudy-day",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -238,9 +219,7 @@
           "precipprob": 100.0,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 2.5,
           "windspeed": 2.2,
           "winddir": 30.0,
@@ -253,9 +232,7 @@
           "severerisk": 3.0,
           "conditions": "Rain, Overcast",
           "icon": "rain",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -282,9 +259,7 @@
           "severerisk": 5.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -311,9 +286,7 @@
           "severerisk": 5.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -340,9 +313,7 @@
           "severerisk": 5.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -369,9 +340,7 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -398,9 +367,7 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -427,9 +394,7 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -456,9 +421,7 @@
           "severerisk": 3.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -485,9 +448,7 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
@@ -514,18 +475,16 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "ZBAA"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
           "datetime": "16:00:00",
           "datetimeEpoch": 1750320000,
-          "temp": 90.2,
-          "feelslike": 89.7,
-          "humidity": 35.94,
-          "dew": 59.6,
+          "temp": 82.3,
+          "feelslike": 86.1,
+          "humidity": 65.76,
+          "dew": 69.7,
           "precip": 0.0,
           "precipprob": 0.0,
           "snow": 0.0,
@@ -533,9 +492,9 @@
           "preciptype": null,
           "windgust": 4.5,
           "windspeed": 4.5,
-          "winddir": 150.8,
-          "pressure": 1003.0,
-          "visibility": 15.0,
+          "winddir": 110.0,
+          "pressure": 1005.0,
+          "visibility": 6.2,
           "cloudcover": 100.0,
           "solarradiation": 530.0,
           "solarenergy": 1.9,
@@ -543,28 +502,26 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": [
-            "remote"
-          ],
+          "stations": ["ZBAA"],
           "source": "obs"
         },
         {
           "datetime": "17:00:00",
           "datetimeEpoch": 1750323600,
-          "temp": 89.9,
-          "feelslike": 89.5,
-          "humidity": 36.82,
-          "dew": 60.0,
+          "temp": 84.1,
+          "feelslike": 88.3,
+          "humidity": 62.05,
+          "dew": 69.7,
           "precip": 0.0,
-          "precipprob": 12.9,
+          "precipprob": 0.0,
           "snow": 0.0,
           "snowdepth": 0.0,
           "preciptype": null,
           "windgust": 5.8,
-          "windspeed": 6.7,
+          "windspeed": 2.2,
           "winddir": 159.6,
-          "pressure": 1003.0,
-          "visibility": 15.0,
+          "pressure": 1005.0,
+          "visibility": 6.2,
           "cloudcover": 100.0,
           "solarradiation": 336.0,
           "solarenergy": 1.2,
@@ -572,26 +529,26 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": null,
-          "source": "fcst"
+          "stations": ["ZBAA"],
+          "source": "obs"
         },
         {
           "datetime": "18:00:00",
           "datetimeEpoch": 1750327200,
-          "temp": 89.1,
-          "feelslike": 89.0,
-          "humidity": 38.39,
-          "dew": 60.5,
+          "temp": 82.3,
+          "feelslike": 86.1,
+          "humidity": 65.76,
+          "dew": 69.7,
           "precip": 0.0,
-          "precipprob": 12.9,
+          "precipprob": 0.0,
           "snow": 0.0,
           "snowdepth": 0.0,
           "preciptype": null,
           "windgust": 4.9,
-          "windspeed": 7.4,
+          "windspeed": 2.2,
           "winddir": 160.6,
-          "pressure": 1003.0,
-          "visibility": 15.0,
+          "pressure": 1005.0,
+          "visibility": 6.2,
           "cloudcover": 100.0,
           "solarradiation": 262.0,
           "solarenergy": 0.9,
@@ -599,26 +556,26 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": null,
-          "source": "fcst"
+          "stations": ["ZBAA"],
+          "source": "obs"
         },
         {
           "datetime": "19:00:00",
           "datetimeEpoch": 1750330800,
-          "temp": 87.5,
-          "feelslike": 87.9,
-          "humidity": 42.25,
-          "dew": 61.8,
+          "temp": 78.7,
+          "feelslike": 78.7,
+          "humidity": 78.63,
+          "dew": 71.5,
           "precip": 0.0,
-          "precipprob": 12.9,
+          "precipprob": 0.0,
           "snow": 0.0,
           "snowdepth": 0.0,
           "preciptype": null,
           "windgust": 6.7,
-          "windspeed": 7.6,
-          "winddir": 141.7,
-          "pressure": 1003.0,
-          "visibility": 15.0,
+          "windspeed": 2.2,
+          "winddir": 90.0,
+          "pressure": 1005.0,
+          "visibility": 6.2,
           "cloudcover": 100.0,
           "solarradiation": 80.0,
           "solarenergy": 0.3,
@@ -626,8 +583,8 @@
           "severerisk": 10.0,
           "conditions": "Overcast",
           "icon": "cloudy",
-          "stations": null,
-          "source": "fcst"
+          "stations": ["ZBAA"],
+          "source": "obs"
         },
         {
           "datetime": "20:00:00",
@@ -4193,9 +4150,7 @@
       "precip": 0.024,
       "precipprob": 12.9,
       "precipcover": 16.67,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 20.0,
@@ -4446,9 +4401,7 @@
           "precipprob": 3.2,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 4.5,
           "windspeed": 4.0,
           "winddir": 140.5,
@@ -4529,9 +4482,7 @@
           "precipprob": 3.2,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 5.1,
           "windspeed": 4.0,
           "winddir": 167.9,
@@ -4612,9 +4563,7 @@
           "precipprob": 3.2,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 5.8,
           "windspeed": 4.5,
           "winddir": 202.3,
@@ -4695,9 +4644,7 @@
           "precipprob": 9.7,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 11.0,
           "windspeed": 13.4,
           "winddir": 118.5,
@@ -4891,9 +4838,7 @@
       "precip": 0.122,
       "precipprob": 41.9,
       "precipcover": 4.17,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 18.6,
@@ -5549,9 +5494,7 @@
           "precipprob": 41.9,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 9.2,
           "windspeed": 5.1,
           "winddir": 124.4,
@@ -5583,9 +5526,7 @@
       "precip": 0.071,
       "precipprob": 41.9,
       "precipcover": 16.67,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 15.7,
@@ -5674,9 +5615,7 @@
           "precipprob": 41.9,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 10.7,
           "windspeed": 6.3,
           "winddir": 125.8,
@@ -5757,9 +5696,7 @@
           "precipprob": 29.0,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 5.6,
           "windspeed": 4.0,
           "winddir": 92.1,
@@ -6164,9 +6101,7 @@
           "precipprob": 16.1,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 3.1,
           "windspeed": 1.8,
           "winddir": 273.0,
@@ -6247,9 +6182,7 @@
           "precipprob": 29.0,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 15.7,
           "windspeed": 7.8,
           "winddir": 45.8,
@@ -6281,9 +6214,7 @@
       "precip": 0.004,
       "precipprob": 32.3,
       "precipcover": 4.17,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 16.6,
@@ -6939,9 +6870,7 @@
           "precipprob": 32.3,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 16.6,
           "windspeed": 10.5,
           "winddir": 99.0,
@@ -6973,9 +6902,7 @@
       "precip": 1.461,
       "precipprob": 38.7,
       "precipcover": 25.0,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 15.1,
@@ -7064,9 +6991,7 @@
           "precipprob": 32.3,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 12.3,
           "windspeed": 8.3,
           "winddir": 107.1,
@@ -7309,9 +7234,7 @@
           "precipprob": 9.7,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 2.7,
           "windspeed": 2.5,
           "winddir": 104.6,
@@ -7392,9 +7315,7 @@
           "precipprob": 9.7,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 5.1,
           "windspeed": 4.7,
           "winddir": 4.9,
@@ -7475,9 +7396,7 @@
           "precipprob": 9.7,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 3.8,
           "windspeed": 1.8,
           "winddir": 52.3,
@@ -7558,9 +7477,7 @@
           "precipprob": 9.7,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 13.6,
           "windspeed": 8.1,
           "winddir": 312.7,
@@ -7641,9 +7558,7 @@
           "precipprob": 38.7,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 11.6,
           "windspeed": 7.2,
           "winddir": 321.4,
@@ -7675,9 +7590,7 @@
       "precip": 0.851,
       "precipprob": 38.7,
       "precipcover": 8.33,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 16.3,
@@ -7766,9 +7679,7 @@
           "precipprob": 38.7,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 4.3,
           "windspeed": 3.6,
           "winddir": 137.2,
@@ -7849,9 +7760,7 @@
           "precipprob": 12.9,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 5.8,
           "windspeed": 2.9,
           "winddir": 84.0,
@@ -9057,9 +8966,7 @@
       "precip": 0.0,
       "precipprob": 48.4,
       "precipcover": 0.0,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 20.4,
@@ -9661,9 +9568,7 @@
           "precipprob": 48.4,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 15.9,
           "windspeed": 6.7,
           "winddir": 150.1,
@@ -9690,9 +9595,7 @@
           "precipprob": 48.4,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 11.4,
           "windspeed": 5.4,
           "winddir": 130.9,
@@ -9719,9 +9622,7 @@
           "precipprob": 48.4,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 6.9,
           "windspeed": 4.0,
           "winddir": 111.7,
@@ -9753,9 +9654,7 @@
       "precip": 0.0,
       "precipprob": 48.4,
       "precipcover": 0.0,
-      "preciptype": [
-        "rain"
-      ],
+      "preciptype": ["rain"],
       "snow": 0.0,
       "snowdepth": 0.0,
       "windgust": 24.4,
@@ -9790,9 +9689,7 @@
           "precipprob": 48.4,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 9.9,
           "windspeed": 5.3,
           "winddir": 121.5,
@@ -9819,9 +9716,7 @@
           "precipprob": 48.4,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 12.9,
           "windspeed": 6.6,
           "winddir": 131.4,
@@ -9848,9 +9743,7 @@
           "precipprob": 48.4,
           "snow": 0.0,
           "snowdepth": 0.0,
-          "preciptype": [
-            "rain"
-          ],
+          "preciptype": ["rain"],
           "windgust": 15.9,
           "windspeed": 7.8,
           "winddir": 141.2,
@@ -10450,12 +10343,12 @@
     }
   },
   "currentConditions": {
-    "datetime": "17:00:00",
-    "datetimeEpoch": 1750323600,
-    "temp": 84.1,
-    "feelslike": 88.3,
-    "humidity": 62.0,
-    "dew": 69.7,
+    "datetime": "20:00:00",
+    "datetimeEpoch": 1750334400,
+    "temp": 76.9,
+    "feelslike": 76.9,
+    "humidity": 83.4,
+    "dew": 71.5,
     "precip": null,
     "precipprob": 0.0,
     "snow": 0.0,
@@ -10463,18 +10356,16 @@
     "preciptype": null,
     "windgust": null,
     "windspeed": 2.2,
-    "winddir": 159.6,
+    "winddir": 110.0,
     "pressure": 1005.0,
     "visibility": 6.2,
     "cloudcover": 100.0,
-    "solarradiation": 336.0,
-    "solarenergy": 1.2,
-    "uvindex": 3.0,
+    "solarradiation": 0.0,
+    "solarenergy": 0.0,
+    "uvindex": 0.0,
     "conditions": "Overcast",
     "icon": "cloudy",
-    "stations": [
-      "ZBAA"
-    ],
+    "stations": ["ZBAA"],
     "source": "obs",
     "sunrise": "04:45:49",
     "sunriseEpoch": 1750279549,

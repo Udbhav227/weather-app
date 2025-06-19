@@ -1,0 +1,188 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+
+  color: var(--text-primary);
+  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+  background-blend-mode: multiply, multiply;
+}
+
+.weather-app-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* --- Header --- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.app-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 5px;
+}
+
+#city-input {
+  border: none;
+  background: transparent;
+  padding: 10px 20px;
+  color: var(--text-primary);
+  outline: none;
+  font-size: 1rem;
+}
+
+#city-input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-button, .unit-toggle {
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  color: var(--text-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button {
+  width: 40px;
+  height: 40px;
+}
+
+.unit-toggle {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 20px;
+}
+
+
+/* --- Main Layout --- */
+main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* --- Glassmorphism Card Base Style --- */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); /* For Safari */
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: var(--card-padding);
+}
+
+/* --- Current Weather (Top Left) --- */
+.current-weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* This creates the subtle gradient from the design */
+  background-image: linear-gradient(135deg, rgba(255, 235, 120, 0.1), rgba(120, 255, 214, 0.1));
+}
+
+.location {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+.current-temp {
+  font-size: 6rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.current-condition {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+#current-weather-icon img {
+    width: 150px; /* Adjust as needed */
+}
+
+
+/* --- Weather Details (Bottom Left) --- */
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.detail-card {
+  text-align: center;
+}
+.detail-card .material-symbols-outlined {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+.detail-title {
+    font-weight: bold;
+    color: var(--text-secondary);
+}
+.detail-value {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+/* --- Right Panel --- */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hourly-forecast h3, .seven-day-forecast h3 {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.hourly-item, .daily-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.daily-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.daily-item-day {
+    flex-basis: 30%;
+}
+.daily-item-condition {
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.daily-item-temp {
+    flex-basis: 20%;
+    text-align: right;
+}
+
+.hourly-item img, .daily-item-condition img {
+    width: 40px;
+}

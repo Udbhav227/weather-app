@@ -7,10 +7,8 @@ import "../styles/variables.css";
 
 import localData from "../bbsr.json";
 
-// --- State ---
 const currentUnit = "C"; // or 'F'
 
-// --- Functions ---
 async function fetchAndDisplayWeather(city) {
   try {
     // TODO: Add a loading state indicator here
@@ -38,9 +36,8 @@ function displayLocalData() {
   }
 }
 
-// --- Event Listeners ---
 function initializeEventListeners() {
-  const searchForm = document.getElementById("search-form");
+  const searchForm = document.getElementById("weather-search-form");
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const cityInput = document.getElementById("city-input");
@@ -48,20 +45,19 @@ function initializeEventListeners() {
     if (city) {
       fetchAndDisplayWeather(city);
     }
-    cityInput.value = ""; // Clear input field
+    cityInput.value = "";
   });
 
   // TODO: Add event listener for the C/F toggle button
   const unitToggle = document.getElementById("unit-toggle-btn");
   unitToggle.addEventListener("click", () => {
-    // Here you would implement the logic in units.js and re-render the UI
+    // TODO: Implement the logic in units.js and re-render the UI
     console.log("Unit toggle clicked. Feature to be implemented.");
   });
 }
 
 // --- Initial Load ---
 document.addEventListener("DOMContentLoaded", () => {
-  // initializeEventListeners();
   displayLocalData();
-  // fetchAndDisplayWeather('Bhubaneswar')
+  initializeEventListeners();
 });

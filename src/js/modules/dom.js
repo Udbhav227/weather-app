@@ -92,7 +92,7 @@ async function renderHourlyForecast(weatherData) {
 
 async function renderDailyForecast(weatherData) {
   DOMElements.dailyContainer.innerHTML = "";
-  const nextDays = weatherData.dailyForecast;
+  const nextDays = weatherData.dailyForecast.slice(0, 15);
 
   // 1. Create an array of promises for all the icons
   const iconPromises = nextDays.map((day) => getWeatherIcon(day.icon));

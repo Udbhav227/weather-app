@@ -1,9 +1,24 @@
+html {
+  overflow: -moz-scrollbars-vertical; 
+  overflow-y: scroll; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+  overflow-x: hidden; 
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  width: 0; 
+  height: 0; 
+}
+
 body {
   font-family: "DM Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 20px;
 
   color: var(--text-primary);
   background-image: linear-gradient(
@@ -18,7 +33,7 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: auto;
-  padding: 5px 0 15px 0;
+  padding: 10px 0 15px 0;
 }
 
 /* --- Header --- */
@@ -174,6 +189,7 @@ main {
 
 /* --- Weather Details --- */
 .weather-details {
+  white-space: no-wrap;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
@@ -222,6 +238,10 @@ main {
   padding-bottom: 8px;
 }
 
+.seven-day-forecast {
+  flex: 1;
+}
+
 .hourly-forecast-container {
   display: flex;
   gap: 10px;
@@ -244,7 +264,7 @@ main {
 
 .daily-forecast-container {
   padding-right: 5px;
-  max-height: 320px;
+  max-height: 340px;
   overflow-y: auto;
   scroll-behavior: smooth;
 }
@@ -306,7 +326,7 @@ main {
   filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.1));
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   body {
     padding: 20px
   }
@@ -341,6 +361,7 @@ main {
 
   .right-panel {
     gap: 20px;
+    max-width: unset;
   }
 
   .daily-forecast-container {

@@ -46,7 +46,7 @@ export default class Weather {
           time: hour.datetime,
           temp: hour.temp,
           icon: hour.icon,
-        }))
+        })),
       );
     }
     if (data.days && data.days[1] && data.days[1].hours) {
@@ -55,7 +55,7 @@ export default class Weather {
           time: hour.datetime,
           temp: hour.temp,
           icon: hour.icon,
-        }))
+        })),
       );
     }
   }

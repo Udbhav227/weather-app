@@ -66,7 +66,10 @@ function renderWeatherDetails(weatherData) {
 async function renderHourlyForecast(weatherData) {
   DOMElements.hourlyContainer.innerHTML = "";
   const currentHour = new Date().getHours();
-  const nextHours = weatherData.hourlyForecast.slice(currentHour, currentHour + 24);
+  const nextHours = weatherData.hourlyForecast.slice(
+    currentHour,
+    currentHour + 24,
+  );
   // 1. Create an array of promises for all the icons
   const iconPromises = nextHours.map((hour) => getWeatherIcon(hour.icon));
 
@@ -78,7 +81,7 @@ async function renderHourlyForecast(weatherData) {
   nextHours.forEach((hour, index) => {
     finalHTML += `
     <div class="hourly-item">
-      <span>${hour.time.slice(0, 2) == currentHour ? 'Now' : formatTime(hour.time)}</span>
+      <span>${hour.time.slice(0, 2) == currentHour ? "Now" : formatTime(hour.time)}</span>
       ${iconHTMLs[index]}  <span>${Math.round(hour.temp)}°</span>
     </div>
   `;

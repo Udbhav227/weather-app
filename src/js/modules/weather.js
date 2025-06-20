@@ -20,12 +20,10 @@ export default class Weather {
     this.datetime = current.datetime;
     this.sunrise = current.sunrise;
     this.sunset = current.sunset;
-    this.pressure = current.pressure;
     this.visibility = current.visibility;
-    this.precip = current.precip;
     this.cloudCover = current.cloudcover;
     this.uvindex = current.uvindex;
-    this.airPressure = current.pressure;
+    this.moonPhase = current.moonphase;
 
     // Daily Forecast
     this.dailyForecast = data.days

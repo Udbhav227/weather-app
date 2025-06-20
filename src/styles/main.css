@@ -35,6 +35,7 @@ body {
 
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50px;
+  overflow: hidden;
 }
 
 #city-input {
@@ -145,7 +146,7 @@ main {
 }
 #current-weather-icon img {
   width: 270px;
-  height: 200px; 
+  height: 200px;
   object-fit: cover;
   filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.2));
 }
@@ -182,6 +183,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  height: 100%; 
+  overflow-y: hidden;
 }
 
 .hourly-forecast h3,
@@ -193,9 +196,11 @@ main {
 
 .hourly-forecast-container {
   display: flex;
-  /* gap: 10px; */
-  overflow-x: scroll  ;
+  gap: 10px;
+  overflow-x: auto;
   scroll-behavior: smooth;
+  padding-bottom: 10px;
+  max-height: 180px; 
 }
 .hourly-forecast-container::-webkit-scrollbar {
   height: 5px;
@@ -232,7 +237,9 @@ main {
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
+  min-width: 100px;
+  text-align: center;
 }
 .daily-item {
   display: flex;
@@ -260,12 +267,14 @@ main {
 }
 .hourly-item img {
   width: 130px;
-  height: 100px; 
+  height: 100px;
   object-fit: cover;
-  filter: drop-shadow(0px 15px 10px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.15));
 }
 .daily-item-condition img {
   width: 50px;
+  object-fit: cover;
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.1));
 }
 
 @media (max-width: 768px) {
@@ -275,15 +284,30 @@ main {
   }
 
   form {
-    display: none !important;
+    display: none !important; /* This hides the search form on smaller screens */
   }
 
   .daily-forecast-container {
-    overflow-y: visible;
+    overflow-y: visible; /* Allows vertical scrolling for daily forecast on mobile */
+    max-height: unset; /* Remove max-height on mobile if you want it to expand */
   }
 
   .daily-item {
     padding: 8px 0;
   }
-}
 
+  .app-logo {
+    margin-bottom: 10px;
+  }
+
+  .weather-app-container {
+    padding: 0; /* Remove padding from container on small screens if desired */
+    max-height: unset; /* Allow full height on mobile */
+    overflow-y: visible; /* Allow body to scroll if needed on mobile */
+  }
+
+  .hourly-forecast-container {
+    height: auto; /* Allow height to adjust based on content on mobile */
+    overflow-x: auto; /* Still allow horizontal scroll if content overflows */
+  }
+}

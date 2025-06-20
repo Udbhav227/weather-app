@@ -5,7 +5,7 @@ import "../styles/main.css";
 import "../styles/reset.css";
 import "../styles/variables.css";
 
-import localData from "../Bejing.json";
+import localData from "../bbsr.json";
 
 // --- State ---
 const currentUnit = "C"; // or 'F'

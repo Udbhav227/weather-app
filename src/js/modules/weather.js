@@ -22,9 +22,10 @@ export default class Weather {
     this.sunset = current.sunset;
     this.pressure = current.pressure;
     this.visibility = current.visibility;
-    // this.dewPoint = current.dewpoint;
     this.precip = current.precip;
     this.cloudCover = current.cloudcover;
+    this.uvindex = current.uvindex;
+    this.airPressure = current.pressure;
 
     // Daily Forecast
     this.dailyForecast = data.days
@@ -37,14 +38,25 @@ export default class Weather {
         }))
       : [];
 
-    // Hourly Forecast
-    this.hourlyForecast =
-      data.days && data.days[0] && data.days[0].hours
-        ? data.days[0].hours.map((hour) => ({
-            time: hour.datetime,
-            temp: hour.temp,
-            icon: hour.icon,
-          }))
-        : [];
+    // Hourly Forecast (till tomorrow)
+    this.hourlyForecast = [];
+    if (data.days && data.days[0] && data.days[0].hours) {
+      this.hourlyForecast = this.hourlyForecast.concat(
+        data.days[0].hours.map((hour) => ({
+          time: hour.datetime,
+          temp: hour.temp,
+          icon: hour.icon,
+        }))
+      );
+    }
+    if (data.days && data.days[1] && data.days[1].hours) {
+      this.hourlyForecast = this.hourlyForecast.concat(
+        data.days[1].hours.map((hour) => ({
+          time: hour.datetime,
+          temp: hour.temp,
+          icon: hour.icon,
+        }))
+      );
+    }
   }
 }

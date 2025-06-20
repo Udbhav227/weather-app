@@ -9,8 +9,10 @@ const DOMElements = {
   ),
   windSpeed: document.getElementById("wind-speed"),
   humidity: document.getElementById("humidity"),
-  precipitation: document.getElementById("precipitation"),
   feelsLike: document.getElementById("feels-like"),
+  uvindex: document.getElementById("uv"),
+  visibility: document.getElementById("visibility"),
+  airPressure: document.getElementById("air-pressure"),
   hourlyContainer: document.getElementById("hourly-forecast-container"),
   dailyContainer: document.getElementById("daily-forecast-container"),
 };
@@ -53,10 +55,12 @@ async function renderCurrentWeather(weatherData) {
 }
 
 function renderWeatherDetails(weatherData) {
-  DOMElements.windSpeed.textContent = `${weatherData.windSpeed} km/h`;
-  DOMElements.humidity.textContent = `${weatherData.humidity} %`;
-  DOMElements.precipitation.textContent = `${weatherData.precip} %`;
-  DOMElements.feelsLike.textContent = `${Math.round(weatherData.feelsLike)}°`;
+  DOMElements.windSpeed.textContent = `${weatherData.windSpeed}`;
+  DOMElements.humidity.textContent = `${weatherData.humidity}`;
+  DOMElements.uvindex.textContent = `${weatherData.uvindex}`;
+  DOMElements.feelsLike.textContent = `${Math.round(weatherData.feelsLike)}`;
+  DOMElements.visibility.textContent = `${weatherData.visibility}`;
+  DOMElements.airPressure.textContent = `${weatherData.airPressure}`;
 }
 
 async function renderHourlyForecast(weatherData) {
@@ -75,7 +79,7 @@ async function renderHourlyForecast(weatherData) {
     finalHTML += `
     <div class="hourly-item">
       <span>${hour.time.slice(0, 2) == currentHour ? 'Now' : formatTime(hour.time)}</span>
-      ${iconHTMLs[index]}  <span>${Math.round(hour.temp)}°C</span>
+      ${iconHTMLs[index]}  <span>${Math.round(hour.temp)}°</span>
     </div>
   `;
   });

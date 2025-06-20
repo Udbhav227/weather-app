@@ -5,22 +5,9 @@ body {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  overflow-y: auto;
 
   color: var(--text-primary);
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.15) 0%,
-      rgba(0, 0, 0, 0.15) 100%
-    ),
-    radial-gradient(
-        at top center,
-        rgba(255, 255, 255, 0.4) 0%,
-        rgba(0, 0, 0, 0.4) 120%
-      )
-      #989898;
-  background-blend-mode: multiply, multiply;
+  background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
 }
 
 .weather-app-container {
@@ -86,11 +73,22 @@ body {
   border-radius: 20px;
 }
 
+.unit-toggle, .search-button, #weather-search-form {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 3px rgba(255, 235, 120, 0.6);
+}
+
 /* --- Main Layout --- */
 main {
   display: grid;
   grid-template-columns: 0.8fr 1fr;
-  gap: 20px;
+  gap: 15px;
 }
 
 .card {
@@ -102,10 +100,10 @@ main {
   padding: var(--card-padding);
   box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.1),
-    inset 0 1px 2px rgba(255, 235, 120, 0.6);
+    inset 0 1px 3px rgba(255, 235, 120, 0.6);
 }
 
-/* --- Current Weather (Top Left) --- */
+/* --- Current Weather --- */
 .current-weather {
   padding-left: 30px;
   padding-right: 30px;
@@ -148,11 +146,11 @@ main {
   color: var(--text-secondary);
 }
 
-/* --- Weather Details (Bottom Left) --- */
+/* --- Weather Details --- */
 .weather-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
 }
 .detail-card {
   text-align: center;
@@ -174,7 +172,7 @@ main {
 .right-panel {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .hourly-forecast h3,
@@ -213,4 +211,15 @@ main {
 .hourly-item img,
 .daily-item-condition img {
   width: 40px;
+}
+
+@media (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    display: none !important;
+  }
 }

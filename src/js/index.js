@@ -30,7 +30,7 @@ async function fetchAndDisplayWeather(city) {
 
 function displayLocalData() {
   try {
-    currentWeather = new Weather(localData); 
+    currentWeather = new Weather(localData);
     updateUI(currentWeather);
   } catch (error) {
     throw new Error("Failed to process local weather data", error);

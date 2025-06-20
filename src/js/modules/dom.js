@@ -14,7 +14,7 @@ const DOMElements = {
   feelsLike: document.getElementById("feels-like"),
   uvCard: document.getElementById("uv-card"),
   visibility: document.getElementById("visibility"),
-  moonPhaseCard: document.getElementById("moon-phase-card"), 
+  moonPhaseCard: document.getElementById("moon-phase-card"),
   hourlyContainer: document.getElementById("hourly-forecast-container"),
   dailyContainer: document.getElementById("daily-forecast-container"),
   unitToggleBtn: document.getElementById("unit-toggle-btn"),
@@ -57,38 +57,43 @@ async function getMoonPhaseDetails(moonPhaseValue) {
   try {
     if (moonPhaseValue === 0) {
       const module = await import(`../../assets/icons/moon-new.svg`);
-      return { name: 'New', icon: module.default };
+      return { name: "New", icon: module.default };
     }
     if (moonPhaseValue > 0 && moonPhaseValue < 0.25) {
-      const module = await import(`../../assets/icons/moon-waxing-crescent.svg`);
-      return { name: 'Wax Cres', icon: module.default };
+      const module = await import(
+        `../../assets/icons/moon-waxing-crescent.svg`
+      );
+      return { name: "Wax Cres", icon: module.default };
     }
     if (moonPhaseValue === 0.25) {
       const module = await import(`../../assets/icons/moon-first-quarter.svg`);
-      return { name: '1st Qtr', icon: module.default };
+      return { name: "1st Qtr", icon: module.default };
     }
     if (moonPhaseValue > 0.25 && moonPhaseValue < 0.5) {
       const module = await import(`../../assets/icons/moon-waxing-gibbous.svg`);
-      return { name: 'Wax Gib', icon: module.default };
+      return { name: "Wax Gib", icon: module.default };
     }
     if (moonPhaseValue === 0.5) {
       const module = await import(`../../assets/icons/moon-full.svg`);
-      return { name: 'Full', icon: module.default };
+      return { name: "Full", icon: module.default };
     }
     if (moonPhaseValue > 0.5 && moonPhaseValue < 0.75) {
       const module = await import(`../../assets/icons/moon-waning-gibbous.svg`);
-      return { name: 'Wan Gib', icon: module.default };
+      return { name: "Wan Gib", icon: module.default };
     }
     if (moonPhaseValue === 0.75) {
       const module = await import(`../../assets/icons/moon-last-quarter.svg`);
-      return { name: 'Last Qtr', icon: module.default };
+      return { name: "Last Qtr", icon: module.default };
     }
     const module = await import(`../../assets/icons/moon-waning-crescent.svg`);
-    return { name: 'Wan Cres', icon: module.default };
+    return { name: "Wan Cres", icon: module.default };
   } catch (error) {
-    console.warn(`Could not load moon phase icon for value: ${moonPhaseValue}`, error);
+    console.warn(
+      `Could not load moon phase icon for value: ${moonPhaseValue}`,
+      error,
+    );
     const fallback = await import(`../../assets/icons/not-available.svg`);
-    return { name: 'Unknown', icon: fallback.default };
+    return { name: "Unknown", icon: fallback.default };
   }
 }
 
@@ -102,7 +107,7 @@ async function renderCurrentWeather(weatherData) {
     .join(", ");
 
   const temp = getTemp(weatherData.currentTemp);
-  DOMElements.currentTemp.textContent = `${temp.value}${temp.unit}`;
+  DOMElements.currentTemp.innerHTML = `${temp.value}<span class="current-temp-unit">${temp.unit}</span>`;
   DOMElements.unitToggleBtn.textContent = temp.unit;
 
   DOMElements.currentCondition.textContent = weatherData.description;
@@ -147,7 +152,7 @@ async function renderHourlyForecast(weatherData) {
     currentHour,
     currentHour + 24,
   );
-  
+
   const iconPromises = nextHours.map((hour) => getWeatherIcon(hour.icon));
   const iconHTMLs = await Promise.all(iconPromises);
 
@@ -158,7 +163,7 @@ async function renderHourlyForecast(weatherData) {
     <div class="hourly-item">
       <span>${hour.time.slice(0, 2) == currentHour ? "Now" : formatTime(hour.time)}</span>
       ${iconHTMLs[index]}
-      <span>${temp.value}${temp.unit}</span> <!-- Display "°C" or "°F" -->
+      <span>${temp.value}<span class="unit">${temp.unit}</span></span> <!-- Wrap unit in a span -->
     </div>
   `;
   });
@@ -183,7 +188,7 @@ async function renderDailyForecast(weatherData) {
       <div class="daily-item-condition">
           ${iconHTMLs[index]} <span>${day.conditions}</span>
       </div>
-      <span class="daily-item-temp">${maxTemp.value}${maxTemp.unit}/${minTemp.value}${minTemp.unit}</span> <!-- Display "°C/°F" -->
+      <span class="daily-item-temp">${maxTemp.value}<span class="unit">${maxTemp.unit}</span>/${minTemp.value}<span class="unit">${minTemp.unit}</span></span> <!-- Wrap unit in a span -->
     </div>
   `;
   });
@@ -193,8 +198,9 @@ async function renderDailyForecast(weatherData) {
 
 export default async function updateUI(weatherData) {
   if (!weatherData) return;
-  
-  DOMElements.unitToggleBtn.textContent = getUnitSystem() === 'imperial' ? 'F' : 'C';
+
+  DOMElements.unitToggleBtn.textContent =
+    getUnitSystem() === "imperial" ? "F" : "C";
 
   await renderCurrentWeather(weatherData);
   renderWeatherDetails(weatherData);

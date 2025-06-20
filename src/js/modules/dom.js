@@ -1,3 +1,5 @@
+import { getTemp, getSpeed, getDistance, getUnitSystem } from "./units";
+
 const DOMElements = {
   location: document.getElementById("location"),
   parentLocation: document.getElementById("parent-location"),
@@ -10,11 +12,12 @@ const DOMElements = {
   windSpeed: document.getElementById("wind-speed"),
   humidity: document.getElementById("humidity"),
   feelsLike: document.getElementById("feels-like"),
-  uvindex: document.getElementById("uv"),
+  uvCard: document.getElementById("uv-card"),
   visibility: document.getElementById("visibility"),
-  airPressure: document.getElementById("air-pressure"),
+  moonPhaseCard: document.getElementById("moon-phase-card"), 
   hourlyContainer: document.getElementById("hourly-forecast-container"),
   dailyContainer: document.getElementById("daily-forecast-container"),
+  unitToggleBtn: document.getElementById("unit-toggle-btn"),
 };
 
 // Helper Functions
@@ -33,19 +36,75 @@ async function getWeatherIcon(iconName) {
     return `<img src="${module.default}" alt="${iconName}">`;
   } catch (error) {
     console.warn(`Could not load icon: ${iconName}`, error);
-    return `<span title="Icon not found">?</span>`;
+    const fallback = await import(`../../assets/icons/not-available.svg`);
+    return `<img src="${fallback.default}" alt="not available">`;
+  }
+}
+
+async function getUvIconPath(uvIndex) {
+  const roundedUv = Math.min(Math.max(Math.round(uvIndex), 0), 11);
+  try {
+    const module = await import(`../../assets/icons/uv-index-${roundedUv}.svg`);
+    return module.default;
+  } catch (error) {
+    console.warn(`Could not load UV index icon for value: ${roundedUv}`, error);
+    const fallback = await import(`../../assets/icons/not-available.svg`);
+    return fallback.default;
+  }
+}
+
+async function getMoonPhaseDetails(moonPhaseValue) {
+  try {
+    if (moonPhaseValue === 0) {
+      const module = await import(`../../assets/icons/moon-new.svg`);
+      return { name: 'New', icon: module.default };
+    }
+    if (moonPhaseValue > 0 && moonPhaseValue < 0.25) {
+      const module = await import(`../../assets/icons/moon-waxing-crescent.svg`);
+      return { name: 'Wax Cres', icon: module.default };
+    }
+    if (moonPhaseValue === 0.25) {
+      const module = await import(`../../assets/icons/moon-first-quarter.svg`);
+      return { name: '1st Qtr', icon: module.default };
+    }
+    if (moonPhaseValue > 0.25 && moonPhaseValue < 0.5) {
+      const module = await import(`../../assets/icons/moon-waxing-gibbous.svg`);
+      return { name: 'Wax Gib', icon: module.default };
+    }
+    if (moonPhaseValue === 0.5) {
+      const module = await import(`../../assets/icons/moon-full.svg`);
+      return { name: 'Full', icon: module.default };
+    }
+    if (moonPhaseValue > 0.5 && moonPhaseValue < 0.75) {
+      const module = await import(`../../assets/icons/moon-waning-gibbous.svg`);
+      return { name: 'Wan Gib', icon: module.default };
+    }
+    if (moonPhaseValue === 0.75) {
+      const module = await import(`../../assets/icons/moon-last-quarter.svg`);
+      return { name: 'Last Qtr', icon: module.default };
+    }
+    const module = await import(`../../assets/icons/moon-waning-crescent.svg`);
+    return { name: 'Wan Cres', icon: module.default };
+  } catch (error) {
+    console.warn(`Could not load moon phase icon for value: ${moonPhaseValue}`, error);
+    const fallback = await import(`../../assets/icons/not-available.svg`);
+    return { name: 'Unknown', icon: fallback.default };
   }
 }
 
 // Render Functions
 async function renderCurrentWeather(weatherData) {
-  DOMElements.location.textContent = weatherData.location.split(",")[0];
+  const [city] = weatherData.location.split(",");
+  DOMElements.location.textContent = city;
   DOMElements.parentLocation.textContent = weatherData.location
     .split(",")
     .slice(1)
     .join(", ");
 
-  DOMElements.currentTemp.textContent = `${Math.round(weatherData.currentTemp)}°`;
+  const temp = getTemp(weatherData.currentTemp);
+  DOMElements.currentTemp.textContent = `${temp.value}${temp.unit}`;
+  DOMElements.unitToggleBtn.textContent = temp.unit;
+
   DOMElements.currentCondition.textContent = weatherData.description;
   DOMElements.currentWeatherDescription.textContent =
     weatherData.weatherDescription;
@@ -54,13 +113,31 @@ async function renderCurrentWeather(weatherData) {
   DOMElements.currentWeatherIcon.innerHTML = iconHTML;
 }
 
-function renderWeatherDetails(weatherData) {
-  DOMElements.windSpeed.textContent = `${weatherData.windSpeed}`;
-  DOMElements.humidity.textContent = `${weatherData.humidity}`;
-  DOMElements.uvindex.textContent = `${weatherData.uvindex}`;
-  DOMElements.feelsLike.textContent = `${Math.round(weatherData.feelsLike)}`;
-  DOMElements.visibility.textContent = `${weatherData.visibility}`;
-  DOMElements.airPressure.textContent = `${weatherData.airPressure}`;
+async function renderWeatherDetails(weatherData) {
+  const wind = getSpeed(weatherData.windSpeed);
+  DOMElements.windSpeed.textContent = `${wind.value} ${wind.unit}`;
+
+  DOMElements.humidity.textContent = `${Math.round(weatherData.humidity)}%`;
+
+  const feelsLike = getTemp(weatherData.feelsLike);
+  DOMElements.feelsLike.textContent = `${feelsLike.value}${feelsLike.unit}`;
+
+  const visibility = getDistance(weatherData.visibility);
+  DOMElements.visibility.textContent = `${visibility.value} ${visibility.unit}`;
+
+  const uvIconPath = await getUvIconPath(weatherData.uvindex);
+  DOMElements.uvCard.innerHTML = `
+    <h4 class="detail-title">UV Index</h4>
+    <img src="${uvIconPath}" alt="UV Index icon">
+    <p class="detail-value">${weatherData.uvindex}</p>
+  `;
+
+  const moonDetails = await getMoonPhaseDetails(weatherData.moonPhase);
+  DOMElements.moonPhaseCard.innerHTML = `
+    <h4 class="detail-title">Moon Phase</h4>
+    <img src="${moonDetails.icon}" alt="${moonDetails.name} icon">
+    <p class="detail-value">${moonDetails.name}</p>
+  `;
 }
 
 async function renderHourlyForecast(weatherData) {
@@ -70,19 +147,18 @@ async function renderHourlyForecast(weatherData) {
     currentHour,
     currentHour + 24,
   );
-  // 1. Create an array of promises for all the icons
+  
   const iconPromises = nextHours.map((hour) => getWeatherIcon(hour.icon));
-
-  // 2. Wait for all promises to resolve
   const iconHTMLs = await Promise.all(iconPromises);
 
-  // 3. Now that you have all the data, build the HTML
   let finalHTML = "";
   nextHours.forEach((hour, index) => {
+    const temp = getTemp(hour.temp);
     finalHTML += `
     <div class="hourly-item">
       <span>${hour.time.slice(0, 2) == currentHour ? "Now" : formatTime(hour.time)}</span>
-      ${iconHTMLs[index]}  <span>${Math.round(hour.temp)}°</span>
+      ${iconHTMLs[index]}
+      <span>${temp.value}${temp.unit}</span> <!-- Display "°C" or "°F" -->
     </div>
   `;
   });
@@ -94,22 +170,20 @@ async function renderDailyForecast(weatherData) {
   DOMElements.dailyContainer.innerHTML = "";
   const nextDays = weatherData.dailyForecast.slice(0, 15);
 
-  // 1. Create an array of promises for all the icons
   const iconPromises = nextDays.map((day) => getWeatherIcon(day.icon));
-
-  // 2. Wait for all promises to resolve
   const iconHTMLs = await Promise.all(iconPromises);
 
-  // 3. Now build the HTML
   let finalHTML = "";
   nextDays.forEach((day, index) => {
+    const maxTemp = getTemp(day.tempMax);
+    const minTemp = getTemp(day.tempMin);
     finalHTML += `
     <div class="daily-item">
       <span class="daily-item-day">${getDayName(day.date)}</span>
       <div class="daily-item-condition">
           ${iconHTMLs[index]} <span>${day.conditions}</span>
       </div>
-      <span class="daily-item-temp">${Math.round(day.tempMax)}°/${Math.round(day.tempMin)}°</span>
+      <span class="daily-item-temp">${maxTemp.value}${maxTemp.unit}/${minTemp.value}${minTemp.unit}</span> <!-- Display "°C/°F" -->
     </div>
   `;
   });
@@ -119,6 +193,9 @@ async function renderDailyForecast(weatherData) {
 
 export default async function updateUI(weatherData) {
   if (!weatherData) return;
+  
+  DOMElements.unitToggleBtn.textContent = getUnitSystem() === 'imperial' ? 'F' : 'C';
+
   await renderCurrentWeather(weatherData);
   renderWeatherDetails(weatherData);
   await renderHourlyForecast(weatherData);

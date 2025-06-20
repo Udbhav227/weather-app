@@ -1,23 +1,25 @@
 import fetchWeatherData from "./modules/api";
 import Weather from "./modules/weather";
 import updateUI from "./modules/dom";
+import { toggleUnits } from "./modules/units";
+
 import "../styles/main.css";
 import "../styles/reset.css";
 import "../styles/variables.css";
 
 import localData from "../bbsr.json";
 
-const currentUnit = "C"; // or 'F'
+let currentWeather = null;
 
 async function fetchAndDisplayWeather(city) {
   try {
     // TODO: Add a loading state indicator here
     console.log(`Fetching weather for ${city}...`);
     const rawData = await fetchWeatherData(city);
-    const weather = new Weather(rawData);
+    currentWeather = new Weather(rawData); // Store the weather object
 
-    console.log("Weather object created:", weather);
-    updateUI(weather);
+    console.log("Weather object created:", currentWeather);
+    updateUI(currentWeather);
     // TODO: Hide loading state indicator
   } catch (error) {
     console.error("Failed to get weather", error);
@@ -28,11 +30,10 @@ async function fetchAndDisplayWeather(city) {
 
 function displayLocalData() {
   try {
-    const weather = new Weather(localData);
-    console.log("Local weather object created:", weather);
-    updateUI(weather);
+    currentWeather = new Weather(localData); 
+    updateUI(currentWeather);
   } catch (error) {
-    console.error("Failed to process local weather data", error);
+    throw new Error("Failed to process local weather data", error);
   }
 }
 
@@ -48,16 +49,18 @@ function initializeEventListeners() {
     cityInput.value = "";
   });
 
-  // TODO: Add event listener for the C/F toggle button
   const unitToggle = document.getElementById("unit-toggle-btn");
   unitToggle.addEventListener("click", () => {
-    // TODO: Implement the logic in units.js and re-render the UI
-    console.log("Unit toggle clicked. Feature to be implemented.");
+    toggleUnits();
+    if (currentWeather) {
+      updateUI(currentWeather);
+    }
   });
 }
 
-// --- Initial Load ---
 document.addEventListener("DOMContentLoaded", () => {
   displayLocalData();
   initializeEventListeners();
 });
+
+toggleUnits();

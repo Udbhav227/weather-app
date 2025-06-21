@@ -50,6 +50,17 @@ function displayLocalData() {
   }
 }
 
+async function fetchCityFromCoordinates(lat, lon) {
+  try {
+    const response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
+    const data = await response.json();
+    return data.city || data.locality || null;
+  } catch (error) {
+    console.error("Failed to fetch city from coordinates:", error);
+    return null;
+  }
+}
+
 function initializeEventListeners() {
   const searchForm = document.getElementById("weather-search-form");
   searchForm.addEventListener("submit", (e) => {
@@ -84,7 +95,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     hideContent();
-    displayLocalData();
+    fetchAndDisplayWeather("New York");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log(`User's location: Latitude ${latitude}, Longitude ${longitude}`);
+          const city = await fetchCityFromCoordinates(latitude, longitude);
+          await fetchAndDisplayWeather(city || `${latitude},${longitude}`);
+        },
+        (error) => {
+          console.error("Geolocation error:", error);
+          alert("Could not fetch your location. Showing default city weather.");
+          fetchAndDisplayWeather("New York");
+        }
+      );
+    } else {
+      console.warn("Geolocation is not supported by this browser.");
+    }
+
     await new Promise((resolve) => setTimeout(resolve, 100));
     showContent();
   } catch (error) {

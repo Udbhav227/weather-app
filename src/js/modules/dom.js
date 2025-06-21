@@ -30,6 +30,10 @@ function formatTime(timeStr) {
   return timeStr.substring(0, 5);
 }
 
+function isFirefox() {
+  return navigator.userAgent.toLowerCase().includes('firefox');
+}
+
 async function getWeatherIcon(iconName) {
   try {
     const module = await import(`../../assets/icons/${iconName}.svg`);
@@ -148,9 +152,10 @@ async function renderWeatherDetails(weatherData) {
 async function renderHourlyForecast(weatherData) {
   DOMElements.hourlyContainer.innerHTML = "";
   const currentHour = new Date().getHours();
+  const range = isFirefox() ? 4 : 24;
   const nextHours = weatherData.hourlyForecast.slice(
     currentHour,
-    currentHour + 24,
+    currentHour + range,
   );
 
   const iconPromises = nextHours.map((hour) => getWeatherIcon(hour.icon));

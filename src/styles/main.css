@@ -52,7 +52,6 @@ body {
   gap: 0.5rem; 
 }
 
-
 #weather-search-form {
   display: flex;
   align-items: center;
@@ -163,7 +162,7 @@ main {
 }
 .current-weather-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: .9fr 1fr;
 }
 .location {
   font-size: clamp(1.8rem, 4vw, 2.5rem);
@@ -247,7 +246,7 @@ main {
 .seven-day-forecast h3 {
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 8px;
+  padding-bottom: 5px;
 }
 
 .seven-day-forecast {
@@ -397,7 +396,7 @@ main {
 
 @media (max-width: 1000px) {
   body {
-    padding: 20px;
+    padding: 12px;
   }
 
   main {
@@ -412,6 +411,36 @@ main {
 
   .current-weather {
     margin-bottom: 20px;
+  }
+
+  .current-weather-container {
+  grid-template-columns: 1fr 1fr;
+  }
+
+  .current-weather-info {
+    max-width: 120px;
+    position: relative;
+  }
+
+  p#location {
+    position: absolute; /* Take it out of the normal document flow */
+    top: 20; /* Adjust as needed to align it visually */
+    left: 0; /* Adjust as needed to align it visually */
+    white-space: nowrap; /* Prevent the text from wrapping to the next line */
+    z-index: 10;
+  }
+
+  p#parent-location {
+    margin-top: clamp(30px, 9.5vw, 50px);
+  }
+  #current-weather-icon img {
+    width: 190px;
+    height: 172px;
+    object-fit: cover;
+  }
+
+  #current-weather-description {
+    font-size: .8rem;
   }
 
   .weather-details {
@@ -432,14 +461,15 @@ main {
     gap: 20px;
     max-width: unset;
   }
-
+  
   .daily-forecast-container {
     overflow-y: visible;
     max-height: unset;
   }
-
+  
   .daily-item {
-    padding: 8px 0;
+    font-size: 0.8rem;
+    padding: 0 0;
   }
 
   .weather-app-container {
@@ -454,7 +484,7 @@ main {
     gap: 0;
   }
 
-  .current-weather-container {
+  /* .current-weather-container {
     display: flex;
     justify-content: space-between;
   }
@@ -462,15 +492,12 @@ main {
   #current-weather-icon {
     width: 80%;
     max-width: 200px;
-  }
+    flex-basis: 60%;
+  } */
 
   .hourly-item img {
     width: 80px;
     height: 60px;
-  }
-
-  .seven-day-forecast {
-    font-size: 0.8rem;
   }
 
   .daily-item-condition {

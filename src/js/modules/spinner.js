@@ -39,7 +39,7 @@ export function hideContent() {
     mainContent.classList.remove("visible");
     mainContent.classList.add("hidden");
   }
-  if (rightPanel) { 
+  if (rightPanel) {
     rightPanel.classList.remove("visible");
     rightPanel.classList.add("hidden");
   }

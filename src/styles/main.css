@@ -418,6 +418,8 @@ main {
 
   .current-weather-container {
     grid-template-columns: 1fr 1fr;
+    padding-right: 0;
+    /* padding-left: 5px; */
   }
 
   .current-weather-info {
@@ -438,7 +440,7 @@ main {
   }
 
   p#current-temp {
-    margin-top: clamp(50px, 16vw, 80px);
+    margin-top: clamp(50px, 19vw, 100px);
   }
 
   #current-weather-icon img {
@@ -449,6 +451,7 @@ main {
 
   #current-weather-description {
     font-size: 0.8rem;
+    margin: 10px 0 5px 0;  
   }
 
   .weather-details {

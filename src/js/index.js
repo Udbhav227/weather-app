@@ -107,7 +107,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         (error) => {
           console.error("Geolocation error:", error);
           alert("Could not fetch your location. Showing default city weather.");
-          fetchAndDisplayWeather("New York");
         }
       );
     } else {

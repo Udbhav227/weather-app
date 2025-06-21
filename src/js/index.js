@@ -3,6 +3,15 @@ import Weather from "./modules/weather";
 import updateUI from "./modules/dom";
 import { toggleUnits } from "./modules/units";
 
+import {
+  showFullPageSpinner,
+  hideFullPageSpinner,
+  showSearchSpinner,
+  hideSearchSpinner,
+  hideContent,
+  showContent,
+} from "./modules/spinner";
+
 import "../styles/main.css";
 import "../styles/reset.css";
 import "../styles/variables.css";
@@ -13,18 +22,22 @@ let currentWeather = null;
 
 async function fetchAndDisplayWeather(city) {
   try {
-    // TODO: Add a loading state indicator here
+    showSearchSpinner();
+    hideContent();
     console.log(`Fetching weather for ${city}...`);
     const rawData = await fetchWeatherData(city);
-    currentWeather = new Weather(rawData); // Store the weather object
-
+    currentWeather = new Weather(rawData);
     console.log("Weather object created:", currentWeather);
+    await new Promise((resolve) => setTimeout(resolve, 50));
     updateUI(currentWeather);
-    // TODO: Hide loading state indicator
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    showContent();
   } catch (error) {
     console.error("Failed to get weather", error);
     alert("Could not fetch weather data. Please try another city.");
-    // TODO: Display error message in the UI
+    showContent();
+  } finally {
+    hideSearchSpinner();
   }
 }
 
@@ -58,8 +71,20 @@ function initializeEventListeners() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  displayLocalData();
+document.addEventListener("DOMContentLoaded", async () => {
+  showFullPageSpinner();
+
+  try {
+    hideContent();
+    displayLocalData();
+    await new Promise((resolve) => setTimeout(resolve, 100));
+    showContent();
+  } catch (error) {
+    console.error(error);
+  } finally {
+    hideFullPageSpinner();
+  }
+
   initializeEventListeners();
 });
 

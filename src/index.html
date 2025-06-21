@@ -10,9 +10,17 @@
     />
   </head>
   <body>
+    <div id="full-page-spinner" class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+
     <div class="weather-app-container">
       <header class="app-header">
-        <div class="app-logo">WeatherApp</div>
+          <div class="app-logo">
+            WeatherApp 
+            <span id="search-spinner" class="spinner-small"></span>
+          </div>
+        
         <form class="search-section" id="weather-search-form">
           <input
             type="text"

@@ -62,6 +62,14 @@ function initializeEventListeners() {
     cityInput.value = "";
   });
 
+  const mobileSearchBtn = document.getElementById("mobile-search-btn");
+  mobileSearchBtn.addEventListener("click", () => {
+    const city = prompt("Search city");
+    if (city) {
+      fetchAndDisplayWeather(city);
+    }
+  });
+
   const unitToggle = document.getElementById("unit-toggle-btn");
   unitToggle.addEventListener("click", () => {
     toggleUnits();

@@ -384,7 +384,6 @@ main {
   }
 }
 
-/* Hide content initially */
 .weather-app-container {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -392,6 +391,10 @@ main {
 
 .weather-app-container.loaded {
   opacity: 1;
+}
+
+.mobile-search-button {
+  display: none;
 }
 
 @media (max-width: 1000px) {
@@ -423,10 +426,10 @@ main {
   }
 
   p#location {
-    position: absolute; /* Take it out of the normal document flow */
-    top: 20; /* Adjust as needed to align it visually */
-    left: 0; /* Adjust as needed to align it visually */
-    white-space: nowrap; /* Prevent the text from wrapping to the next line */
+    position: absolute; 
+    top: 20; 
+    left: 0; 
+    white-space: nowrap; 
     z-index: 10;
   }
 
@@ -482,6 +485,28 @@ main {
     height: auto;
     overflow-x: auto;
     gap: 0;
+  }
+
+  .mobile-search-button {
+    padding: 5px;
+    display: unset;
+    font-size: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .utils {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .unit-toggle {
+    font-weight: bold;
+    height: 40px;
   }
 
   /* .current-weather-container {

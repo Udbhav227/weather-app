@@ -24,7 +24,7 @@ You can view the live preview of the app without installation:
 
 ## Resources  
 
-- **Weather API**: [OpenWeatherMap](https://openweathermap.org/)  
+- **Weather API**: [VisualCrossingAPI](https://www.visualcrossing.com/weather-api/)  
 - **Icons**: [Meteocons](http://www.meteocons.com/)  
 
 ## License  
